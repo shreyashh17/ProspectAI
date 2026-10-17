@@ -1,4 +1,9 @@
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000/api/v1';
+const API_BASE =
+  import.meta.env.VITE_API_BASE ||
+  (import.meta.env.PROD
+    ? 'https://prospectai-11.onrender.com/api/v1'
+    : 'http://localhost:8000/api/v1');
+
 
 export async function apiRequest<T = any>(
   endpoint: string,
